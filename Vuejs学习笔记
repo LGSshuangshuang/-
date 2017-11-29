@@ -1,0 +1,19 @@
+一、模板语法
+插入值
+ 文本{{text}}
+  js：new Vue（{
+    el:"#id",
+    data:{
+      text:"text"，
+    }
+  }）
+  html v-html
+  <div v-html="html"></div>
+  js:new Vue({
+    el:"#id",
+    data:{
+      text:"<h1>text</h1>"
+    }
+  })
+  属性 v-bind
+  
