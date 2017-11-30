@@ -16,4 +16,13 @@
     }
   })
   属性 v-bind
-  
+  <div id="test">
+   <input type="checkbox" v-model="class1" />
+   <div v-bind:class="{'class1':class1}">text</div>
+  </div>
+  js: new Vue({
+   el:"#test",
+   data:{
+    class1:false
+   }
+  })
