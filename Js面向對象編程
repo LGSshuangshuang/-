@@ -6,18 +6,19 @@
   如 new Date(2018,01)创建Date对象，而Date()方法返回字符串
   构造器生成的对象都是隐式引用（对象的原型），链接到构造器的Prototype属性
   Js不区分类和实例，通过原型（prototype）来实现面向对象编程
-  定义：
+  创建student对象：
     var student={
       name：'Robot',
       height:1.6,
       run:function(){console.log(this.name,this.height)}
     }
-    通过原型来创建对象
+    创建小明对象
     var xiaoming={
       name:'xiaoming'
     }
+    将小明的原型指向student
     xiaoming.__proto_=student;
-    将xiaoming对象的原型指向student，则小明看上去从student继承
+    小明看上去从student继承
     在代码编写时，不要直接obj._proto_去改变一个对象的原型
     低版本无法使用_proto_属性
     
@@ -27,26 +28,15 @@
     
     创建对象
     js对每个创建的对象都会设置一个原型指向他的原型对象
+    通过obj.xx访问对象的属性时，js在该对象上查找属性，如果没有则在原型上找，
+    还是没找到则上溯到Object.prototype对象，没找到则返回undefined
     
+    Array对象arr=[1,2,3]
+    原型链
+    arr ----> Array.prototype ----> Object.prototype ----> null
     
-    序列化对象
-    把对象转化为字符串类型（json字符串）
-    JSON.stringify(value[,replacer][,space])
-    value:输入的对象 数组或对象
-    
-    replacer:方法，数组
-    value为数组时，replacer为方法function name（key，value）{} 
-    返回方法处理数组的返回值
-    value为数组，replacer为数  
-    返回第一个数组
-    value为对象，replacer为数组
-    返回对象中key为数组中value数据
-    
-    space：输出的Json格式，数字则键值对缩进多少个字符
-            转义字符/t则每行一个回车
-            字符串，在每行前添加字符串
-            
-    将JSON反序列化成對象
-    JSON.parse(value)
-    
+    函数对象 function foo(){}
+    原型链
+    foo ----> Function.prototype ----> Object.prototype ----> null
+    Function.prototype定义了apply(),call()方法，所有函数都可调用
    
