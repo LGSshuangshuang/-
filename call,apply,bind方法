@@ -1,0 +1,8 @@
+Function.prototype定义了call(),apply()等方法
+所以多有方法都可以调用这些方法
+functionName.call(obj[,args])
+obj:一个对象，改变上下文即this的值
+args：functionName的参数
+
+下面这句话，意思是调用对象cat的action方法，将this对象修改为dog对象，并把参数"food"传给action方法
+cat.action.call(dog,"food");
