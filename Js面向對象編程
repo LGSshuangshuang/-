@@ -2,7 +2,7 @@
   廖雪峰的官方网站
 内容：
   Js中所有數據都是對象，对象可通过各种方式，也可通过构造器创建对象
-  构造器通过new表达式创建对象
+  构造器（构造器必须是一个方法）通过new表达式创建对象
   如 new Date(2018,01)创建Date对象，而Date()方法返回字符串
   构造器生成的对象都是隐式引用（对象的原型），链接到构造器的Prototype属性
   Js不区分类和实例，通过原型（prototype）来实现面向对象编程
@@ -21,7 +21,6 @@
     小明看上去从student继承
     在代码编写时，不要直接obj._proto_去改变一个对象的原型
     低版本无法使用_proto_属性
-    
     object.create()方法可以传入一个原型对象，并创建一个基于该原型的新对象
     但新对象没有任何属性
     
@@ -39,4 +38,9 @@
     原型链
     foo ----> Function.prototype ----> Object.prototype ----> null
     Function.prototype定义了apply(),call()方法，所有函数都可调用
-   
+
+    创建构造器
+    var cat=function(){};
+    cat.prototype={food:fish,sounds:function(){alert("miao")}}
+    通过构造器构造对象
+    var dog=new cat；
