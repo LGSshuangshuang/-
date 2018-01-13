@@ -1,0 +1,21 @@
+序列化对象
+    把对象转化为字符串类型（json字符串）
+    JSON.stringify(value[,replacer][,space])
+    value:输入的对象 数组或对象
+    
+    replacer:方法，数组
+    value为数组时，replacer为方法function name（key，value）{} 
+    返回方法处理数组的返回值
+    value为数组，replacer为数  
+    返回第一个数组
+    value为对象，replacer为数组
+    返回对象中key为数组中value数据
+    
+    space：输出的Json格式，数字则键值对缩进多少个字符
+            转义字符/t则每行一个回车
+            字符串，在每行前添加字符串
+            
+    将JSON反序列化成對象
+    JSON.parse(value)
+    
+   
