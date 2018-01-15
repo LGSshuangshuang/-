@@ -70,3 +70,17 @@
     
 为了避免用构造函数创建对象时，忘记写new，
 所以约定 构造函数首字母大写，普通函数小写，一些检查工具可以检测到错误
+
+或者定义一个构造对象的函数
+function Student(obj)//构造函数
+{
+  this.name=obj.name||'匿名';
+  this.age=obj.age||"1";
+}
+Student.prototype.hello=function(){alert(this.name)}//在原型函数上定义方法，可以继承此方法
+function createStudent(obj)//创建对象的函数
+{
+    return new Student(obj||{})
+}
+var stu1=createStudent({name:'小明'})
+
